@@ -13,6 +13,8 @@ using System.Reflection;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Collections;
 
 namespace WindowsFormsApp1
 {
@@ -22,44 +24,35 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            string[] row0 = { "11/22/1968", "29", "Revolution 9",
-            "Beatles", "The Beatles [White Album]" };
-            string[] row1 = new string[10];
-            dataGridView1.ColumnCount = 5;
-            dataGridView1.Columns[0].Name = "Release Date";
-            dataGridView1.Columns[1].Name = "Track";
-            dataGridView1.Columns[2].Name = "Title";
-            dataGridView1.Columns[3].Name = "Artist";
-            dataGridView1.Columns[4].Name = "Album";
-            dataGridView1.Rows.Add(row0);
+            tabControl1.SelectedTab = tabControl1.TabPages["tabPage2"];
+
+            string[] row1 = new string[50];
+            dataGridView1.Rows.Clear();
+            dataGridView1.ColumnCount = 19;
 
 
-            SQLiteConnection Connect = new SQLiteConnection(@"Data Source=C:\Users\Kvantorium\Documents\sdfgh.db; Version=3;");
+
+            SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
             SQLiteCommand command = Connect.CreateCommand();
             Connect.Open();
-            command.CommandText =    @"SELECT * FROM sdhsg ";
+            command.CommandText = @"SELECT * FROM resume ";
             SQLiteDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
-
-                    richTextBox1.Text += reader.GetValue(i).ToString();
-                    richTextBox1.Text += " ";
                     row1[i] = "";//чистка поля перед записью
                     row1[i] += reader.GetValue(i).ToString();
 
 
                 }
-                richTextBox1.Text += "\r\n";
                 dataGridView1.Rows.Add(row1);
-                
-
             }
-           
+
         }
         Word._Application application;
         Word._Document document;
@@ -67,12 +60,14 @@ namespace WindowsFormsApp1
         Object trueObj = true;
         Object falseObj = false;
 
-        private void button1_Click(object sender, EventArgs e)
+        public string[] strmas = new string[100];
+
+        private void openfile()
         {
             //создаем обьект приложения word
             application = new Word.Application();
             // создаем путь к файлу
-            Object templatePathObj = "D:/prog.docx"; 
+            Object templatePathObj = "D:/resume.docx";
 
             // если вылетим не этом этапе, приложение останется открытым
             try
@@ -88,92 +83,208 @@ namespace WindowsFormsApp1
                 throw error;
             }
             application.Visible = true;
+        }
 
+
+        //Считывание всего текста
+        private void schitivanietekstaizdoka(string name)
+        {
+            string fileName = @name;
+            string sdf;
+
+            //int g = a.Length;
+            name=name.Replace('\'', '/');
+
+            using (WordprocessingDocument myDocument = WordprocessingDocument.Open(fileName, true))
+            {
+                Body body = myDocument.MainDocumentPart.Document.Body;
+                for (int g = 0; g < 19; g++)
+                {
+                    DocumentFormat.OpenXml.Wordprocessing.Paragraph firstParagraph = body.Elements<Paragraph>().ElementAt<Paragraph>(g);
+                    DocumentFormat.OpenXml.OpenXmlElement firstChild = firstParagraph.FirstChild;
+                    IEnumerable<Run> elementsAfter = firstChild.ElementsAfter().Where(c => c is Run).Cast<Run>();
+                    foreach (DocumentFormat.OpenXml.Wordprocessing.Run runs in elementsAfter)
+                    {
+                        sdf = runs.InnerText.ToString();
+                        qwerty(sdf);
+                        strmas[g] = sdf;
+                    }
+                }
+                myDocument.MainDocumentPart.Document.Save();
+            }
+        }
+
+
+        private void qwerty(string str)
+        {
+            int a = str.Length;
+            int b = str.IndexOf(":");
+            //for (int i = b + 1; i < a; i++)
+            //textBox1.Text += str[i].ToString();
+            //    richTextBox2.Text += str[i];
+            //richTextBox2.Text += "\n";
+        }
+
+        private void ochistka()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+            textBox8.Text = "";
+            textBox9.Text = "";
+            textBox10.Text = "";
+            textBox11.Text = "";
+            textBox12.Text = "";
+            textBox13.Text = "";
+            textBox14.Text = "";
+            textBox15.Text = "";
+            textBox16.Text = "";
+            textBox17.Text = "";
+            textBox18.Text = "";
+            textBox19.Text = "";
+        }
+
+        private void soderzimoe_doca_dlya_pravki(string[] strmas1)
+        {
+            //string a = textBox20.Text;
+
+            //schitivanietekstaizdoka("D:/resume.docx");
+
+            textBox1.Text += strmas1[0];
+            textBox2.Text += strmas1[1];
+            textBox3.Text += strmas1[2];
+            textBox4.Text += strmas1[3];
+            textBox5.Text += strmas1[4];
+            textBox6.Text += strmas1[5];
+            textBox7.Text += strmas1[6];
+            textBox8.Text += strmas1[7];
+            textBox9.Text += strmas1[8];
+            textBox10.Text += strmas1[9];
+            textBox11.Text += strmas1[10];
+            textBox12.Text += strmas1[11];
+            textBox13.Text += strmas1[12];
+            textBox14.Text += strmas1[13];
+            textBox15.Text += strmas1[14];
+            textBox16.Text += strmas1[15];
+            textBox17.Text += strmas1[16];
+            textBox18.Text += strmas1[17];
+            textBox19.Text += strmas1[18];
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ochistka();
+            soderzimoe_doca_dlya_pravki(strmas);
 
         }
 
+        //string richtextbox;
+        public string[] dirs1;
+        private void schitivaniefailovvpapke()
+        {
+            //string[] dirs = Directory.GetFiles(@"D:\test");
+            dirs1 = Directory.GetFiles(@"D:\test");
+            foreach (string path in dirs1)
+            {
+                if (File.Exists(path))
+                {
+                    // This path is a file
+                    richTextBox1.Text += path;
+                    richTextBox1.Text += "\n";
+                }
+                else if (Directory.Exists(path))
+                {
+                    // This path is a directory
+                    string[] fileEntries = Directory.GetFiles(path);
+                    //dirs1 =  Directory.GetFiles(path);
+                    foreach (string fileName in fileEntries)
+                    {
+                        //richtextbox += fileName;
+                        //richtextbox += "\n";
+                        richTextBox1.Text += fileName;
+                        richTextBox1.Text += "\n";
+                    }
+
+                }
+            }
+        }
+
+        private void perenos_v_bd()
+        {
+            SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
+            SQLiteCommand command = Connect.CreateCommand();
+            Connect.Open();
+                command.CommandText = @"INSERT INTO resume ('Фамилия', 'Имя', 'Отчество', 'Адрес', 'Телефон', 'Цель', 'Образование', 'Диплом', 'Дата получения', 'Учебное заведение', 'Специализация', 'Дополнительная специализация', 'Курсовые работы по специальности', 'Навыки и умения', 'Управление', 'Опыт работы', 'Должность', 'Организация', 'Даты с – по') 
+                VALUES ('" + textBox1.Text.ToString()+ "', '" + textBox2.Text.ToString() + "', '" + textBox3.Text.ToString() + "', '" + textBox4.Text.ToString() + "', '" + textBox5.Text.ToString() + "', '" + textBox6.Text.ToString() + "', '" + textBox7.Text.ToString() + "', '" + textBox8.Text.ToString() + "', '" + textBox9.Text.ToString() + "', '" + textBox10.Text.ToString() + "', '" + textBox11.Text.ToString() + "', '" + textBox12.Text.ToString() + "', '" + textBox13.Text.ToString() + "', '" + textBox14.Text.ToString() + "', '" + textBox15.Text.ToString() + "', '" + textBox16.Text.ToString() + "', '" + textBox17.Text.ToString() + "', '" + textBox18.Text.ToString() + "', '" + textBox19.Text.ToString() + "')";
+                command.ExecuteReader();
+            
+                Connect.Close();
+        }
+
+        private void peredelka_bd()
+        {
+            SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
+            SQLiteCommand command = Connect.CreateCommand();
+            Connect.Open();
+            command.CommandText = @"UPDATE resume SET Фамилия = "+ "'" + textBox1.Text.ToString()+ "'";
+            command.ExecuteReader();
+            Connect.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            perenos_v_bd();
+        }
+
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            schitivaniefailovvpapke();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            schitivaniefailovvpapke();
+
+            foreach (string path in dirs1)
+            {
+
+                string a = path;
+                richTextBox1.Text += a;
+                ochistka();
+                schitivanietekstaizdoka(a);                
+                soderzimoe_doca_dlya_pravki(strmas);
+                perenos_v_bd();
+            }
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MessageBox.Show("sdfsdfsdf");
+            //for (int i = 0; i < dataGridView1.RowCount; i++)
+            //{
+
+            ochistka();
+            string[] str = new string[100];
+
+            for(int i =0;i< dataGridView1.CurrentRow.Cells.Count;i++)
+            {
+                str[i] = dataGridView1.CurrentRow.Cells[i].Value.ToString();
+            }
+            soderzimoe_doca_dlya_pravki(str);
+            //b[i] = dataGridView1[1, i].Value.ToString();
+            //MessageBox.Show(string.Format(a[i] + " " + b[i]));
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string fileName = @"D:/prog.docx";
-            using (WordprocessingDocument myDocument = WordprocessingDocument.Open(fileName, true))
-            {
-                //Paragraph p =
-                //    new Paragraph(
-                //        new Run(
-                //            new Text("This is some text in a run in a paragraph.")));
-                //myDocument.MainDocumentPart.Document.Body.AppendChild(p);
-                // Get the first paragraph.  
-                //Paragraph p = myDocument.MainDocumentPart.Document.Body.Elements<Paragraph>().First();
-                // If the paragraph has no ParagraphProperties object, create a new one.  
-                //if (p.Elements<ParagraphProperties>().Count() == 0)
-                //  p.PrependChild<ParagraphProperties>(new ParagraphProperties());
-                // Get the ParagraphProperties element of the paragraph.  
-                //ParagraphProperties pPr = p.Elements<ParagraphProperties>().First();
-                // Set the value of ParagraphStyleId to "Heading3".  
-                //pPr.ParagraphStyleId = new ParagraphStyleId() { Val = "Heading3" };
-
-                Body body = myDocument.MainDocumentPart.Document.Body;
-                Paragraph para = body.AppendChild(new Paragraph());
-                //Run run = para.AppendChild(new Run());
-                //run.AppendChild(new Text("Append text in body, but text is not saved - OpenWordprocessingDocumentReadonly"));
-                //richTextBox1.Text += body.InnerText;
-
-                //for(int h=0;h < body.Elements<Paragraph>().Count()-2;h++)
-                //{
-                //richTextBox1.Text += body.Elements<Paragraph>().Count<Paragraph>();
-
-
-                RunProperties runProperties1 = new RunProperties();
-
-
-
-                for (int g = 0; g < body.Elements<Paragraph>().Count<Paragraph>(); g++)
-                {
-
-                    DocumentFormat.OpenXml.Wordprocessing.Paragraph firstParagraph =
-                            body.Elements<Paragraph>().ElementAt<Paragraph>(g);
-
-                    DocumentFormat.OpenXml.OpenXmlElement firstChild = firstParagraph.FirstChild;
-
-
-                    if (firstChild != null)
-                    {
-                        IEnumerable<Run> elementsAfter =
-                    firstChild.ElementsAfter().Where(c => c is Run).Cast<Run>();
-
-
-
-                        foreach (DocumentFormat.OpenXml.Wordprocessing.Run runs in elementsAfter)
-                        {
-                            richTextBox1.Text += runs.InnerText.ToString()+"\n";
-                        }
-                    }
-                    else
-                    {
-                        richTextBox1.Text += "\n";
-
-                    }
-                }
-
-                //Paragraph p = myDocument.MainDocumentPart.Document.Body.Descendants<Paragraph>().ElementAtOrDefault(0);
-                // Call Save to generate an exception and show that access is read-only.
-                myDocument.MainDocumentPart.Document.Save();
-
-
-                  
-                string text = "";
-
-
-                //for (int i = 0; i < myDocument.Paragraphs.Count; i++)
-                //{
-                //    text += " \r\n " + myDocument.Paragraphs[i + 1].Range.Text;
-                //}
-                
-
-                }
-            MessageBox.Show("All done. Press a key.");
-            
+            peredelka_bd();
         }
     }
-}
+    }
+
