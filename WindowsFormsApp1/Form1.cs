@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabControl1.TabPages["tabPage2"];
+            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
 
             string[] row1 = new string[50];
             dataGridView1.Rows.Clear();
