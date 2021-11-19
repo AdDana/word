@@ -20,8 +20,9 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        public int countstring = 0;
         public Form1()
-        {
+        {      
             InitializeComponent();
         }
 
@@ -41,13 +42,17 @@ namespace WindowsFormsApp1
             command.CommandText = @"SELECT * FROM resume ";
             SQLiteDataReader reader = command.ExecuteReader();
 
+            
+
             while (reader.Read())
             {
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
                     row1[i] = "";//чистка поля перед записью
                     row1[i] += reader.GetValue(i).ToString();
-
+                    //richTextBox1.Text += reader.GetValue(i).ToString();
+                    //richTextBox1.Text += reader.GetValue(0).ToString();
+                    countstring++;
 
                 }
                 dataGridView1.Rows.Add(row1);
@@ -98,7 +103,7 @@ namespace WindowsFormsApp1
             using (WordprocessingDocument myDocument = WordprocessingDocument.Open(fileName, true))
             {
                 Body body = myDocument.MainDocumentPart.Document.Body;
-                for (int g = 0; g < 19; g++)
+                for (int g = 0; g < 20; g++)
                 {
                     DocumentFormat.OpenXml.Wordprocessing.Paragraph firstParagraph = body.Elements<Paragraph>().ElementAt<Paragraph>(g);
                     DocumentFormat.OpenXml.OpenXmlElement firstChild = firstParagraph.FirstChild;
@@ -154,25 +159,25 @@ namespace WindowsFormsApp1
 
             //schitivanietekstaizdoka("D:/resume.docx");
 
-            textBox1.Text += strmas1[0];
-            textBox2.Text += strmas1[1];
-            textBox3.Text += strmas1[2];
-            textBox4.Text += strmas1[3];
-            textBox5.Text += strmas1[4];
-            textBox6.Text += strmas1[5];
-            textBox7.Text += strmas1[6];
-            textBox8.Text += strmas1[7];
-            textBox9.Text += strmas1[8];
-            textBox10.Text += strmas1[9];
-            textBox11.Text += strmas1[10];
-            textBox12.Text += strmas1[11];
-            textBox13.Text += strmas1[12];
-            textBox14.Text += strmas1[13];
-            textBox15.Text += strmas1[14];
-            textBox16.Text += strmas1[15];
-            textBox17.Text += strmas1[16];
-            textBox18.Text += strmas1[17];
-            textBox19.Text += strmas1[18];
+            textBox1.Text += strmas1[1];
+            textBox2.Text += strmas1[2];
+            textBox3.Text += strmas1[3];
+            textBox4.Text += strmas1[4];
+            textBox5.Text += strmas1[5];
+            textBox6.Text += strmas1[6];
+            textBox7.Text += strmas1[7];
+            textBox8.Text += strmas1[8];
+            textBox9.Text += strmas1[9];
+            textBox10.Text += strmas1[10];
+            textBox11.Text += strmas1[11];
+            textBox12.Text += strmas1[12];
+            textBox13.Text += strmas1[13];
+            textBox14.Text += strmas1[14];
+            textBox15.Text += strmas1[15];
+            textBox16.Text += strmas1[16];
+            textBox17.Text += strmas1[17];
+            textBox18.Text += strmas1[18];
+            textBox19.Text += strmas1[19];
         }
 
 
@@ -222,8 +227,7 @@ namespace WindowsFormsApp1
                 command.CommandText = @"INSERT INTO resume ('Фамилия', 'Имя', 'Отчество', 'Адрес', 'Телефон', 'Цель', 'Образование', 'Диплом', 'Дата получения', 'Учебное заведение', 'Специализация', 'Дополнительная специализация', 'Курсовые работы по специальности', 'Навыки и умения', 'Управление', 'Опыт работы', 'Должность', 'Организация', 'Даты с – по') 
                 VALUES ('" + textBox1.Text.ToString()+ "', '" + textBox2.Text.ToString() + "', '" + textBox3.Text.ToString() + "', '" + textBox4.Text.ToString() + "', '" + textBox5.Text.ToString() + "', '" + textBox6.Text.ToString() + "', '" + textBox7.Text.ToString() + "', '" + textBox8.Text.ToString() + "', '" + textBox9.Text.ToString() + "', '" + textBox10.Text.ToString() + "', '" + textBox11.Text.ToString() + "', '" + textBox12.Text.ToString() + "', '" + textBox13.Text.ToString() + "', '" + textBox14.Text.ToString() + "', '" + textBox15.Text.ToString() + "', '" + textBox16.Text.ToString() + "', '" + textBox17.Text.ToString() + "', '" + textBox18.Text.ToString() + "', '" + textBox19.Text.ToString() + "')";
                 command.ExecuteReader();
-            
-                Connect.Close();
+            Connect.Close();
         }
 
         private void peredelka_bd()
@@ -265,14 +269,14 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            MessageBox.Show("sdfsdfsdf");
+            //MessageBox.Show("sdfsdfsdf");
             //for (int i = 0; i < dataGridView1.RowCount; i++)
             //{
 
             ochistka();
             string[] str = new string[100];
 
-            for(int i =0;i< dataGridView1.CurrentRow.Cells.Count;i++)
+            for(int i = 0;i < dataGridView1.CurrentRow.Cells.Count; i++)
             {
                 str[i] = dataGridView1.CurrentRow.Cells[i].Value.ToString();
             }

@@ -498,7 +498,6 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.a1);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.textBox1);
@@ -551,7 +550,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(461, 447);
+            this.button2.Location = new System.Drawing.Point(315, 447);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 48);
             this.button2.TabIndex = 56;
@@ -561,12 +560,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(321, 447);
+            this.button1.Location = new System.Drawing.Point(519, 638);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 48);
+            this.button1.Size = new System.Drawing.Size(110, 10);
             this.button1.TabIndex = 55;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
@@ -594,13 +594,15 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(100, 20);
             this.textBox20.TabIndex = 58;
+            this.textBox20.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1579, 649);
+            this.ClientSize = new System.Drawing.Size(1366, 649);
             this.Controls.Add(this.textBox20);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.tabControl1);
@@ -666,11 +668,11 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
