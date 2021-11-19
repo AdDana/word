@@ -53,7 +53,6 @@ namespace WindowsFormsApp1
                     //richTextBox1.Text += reader.GetValue(i).ToString();
                     //richTextBox1.Text += reader.GetValue(0).ToString();
                     countstring++;
-
                 }
                 dataGridView1.Rows.Add(row1);
             }
@@ -270,19 +269,14 @@ namespace WindowsFormsApp1
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //MessageBox.Show("sdfsdfsdf");
-            //for (int i = 0; i < dataGridView1.RowCount; i++)
-            //{
-
             ochistka();
             string[] str = new string[100];
-
-            for(int i = 0;i < dataGridView1.CurrentRow.Cells.Count; i++)
+            for(int i = 0; i < dataGridView1.CurrentRow.Cells.Count; i++)
             {
                 str[i] = dataGridView1.CurrentRow.Cells[i].Value.ToString();
+                richTextBox1.Text += i;
             }
             soderzimoe_doca_dlya_pravki(str);
-            //b[i] = dataGridView1[1, i].Value.ToString();
-            //MessageBox.Show(string.Format(a[i] + " " + b[i]));
         }
 
         private void button2_Click(object sender, EventArgs e)
