@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
 
             string[] row1 = new string[50];
             dataGridView1.Rows.Clear();
-            dataGridView1.ColumnCount = 19;
+            dataGridView1.ColumnCount = 20;
 
 
 
