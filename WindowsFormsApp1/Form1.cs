@@ -33,17 +33,13 @@ namespace WindowsFormsApp1
             string[] row1 = new string[50];
             dataGridView1.Rows.Clear();
             dataGridView1.ColumnCount = 20;
-
-
-
+            
             SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
             SQLiteCommand command = Connect.CreateCommand();
             Connect.Open();
             command.CommandText = @"SELECT * FROM resume ";
             SQLiteDataReader reader = command.ExecuteReader();
-
             
-
             while (reader.Read())
             {
                 for (int i = 0; i < reader.FieldCount; i++)
@@ -95,10 +91,7 @@ namespace WindowsFormsApp1
         {
             string fileName = @name;
             string sdf;
-
-            //int g = a.Length;
             name=name.Replace('\'', '/');
-
             using (WordprocessingDocument myDocument = WordprocessingDocument.Open(fileName, true))
             {
                 Body body = myDocument.MainDocumentPart.Document.Body;
@@ -110,23 +103,11 @@ namespace WindowsFormsApp1
                     foreach (DocumentFormat.OpenXml.Wordprocessing.Run runs in elementsAfter)
                     {
                         sdf = runs.InnerText.ToString();
-                        //qwerty(sdf);
-                        strmas[g] = sdf;
+                        strmas[g+1] = sdf;
                     }
                 }
                 myDocument.MainDocumentPart.Document.Save();
             }
-        }
-
-
-        private void qwerty(string str)
-        {
-            int a = str.Length;
-            int b = str.IndexOf(":");
-            //for (int i = b + 1; i < a; i++)
-            //textBox1.Text += str[i].ToString();
-            //    richTextBox2.Text += str[i];
-            //richTextBox2.Text += "\n";
         }
 
         private void ochistka()

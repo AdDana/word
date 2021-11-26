@@ -498,7 +498,6 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.a1);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.textBox1);
@@ -561,11 +560,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(497, 447);
+            this.button1.Location = new System.Drawing.Point(12, 101);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 48);
+            this.button1.Size = new System.Drawing.Size(113, 48);
             this.button1.TabIndex = 55;
-            this.button1.Text = "button1";
+            this.button1.Text = "Записать данные файлов из папки в таблицу";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -580,12 +579,13 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 102);
+            this.button5.Location = new System.Drawing.Point(12, 213);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(111, 47);
             this.button5.TabIndex = 57;
             this.button5.Text = "Считать файлы из папки";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // textBox20
@@ -594,6 +594,7 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(100, 20);
             this.textBox20.TabIndex = 58;
+            this.textBox20.Visible = false;
             // 
             // Form1
             // 
@@ -601,6 +602,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 649);
             this.Controls.Add(this.textBox20);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.tabControl1);
