@@ -110,8 +110,8 @@ namespace WindowsFormsApp1
                     foreach (DocumentFormat.OpenXml.Wordprocessing.Run runs in elementsAfter)
                     {
                         sdf = runs.InnerText.ToString();
-                        qwerty(sdf);
-                        strmas[g] = sdf;
+                        //qwerty(sdf);
+                        //strmas[g] = sdf;
                     }
                 }
                 myDocument.MainDocumentPart.Document.Save();
@@ -187,7 +187,6 @@ namespace WindowsFormsApp1
 
         }
 
-        //string richtextbox;
         public string[] dirs1;
         private void schitivaniefailovvpapke()
         {
@@ -208,10 +207,11 @@ namespace WindowsFormsApp1
                     //dirs1 =  Directory.GetFiles(path);
                     foreach (string fileName in fileEntries)
                     {
-                        //richtextbox += fileName;
-                        //richtextbox += "\n";
-                        richTextBox1.Text += fileName;
-                        richTextBox1.Text += "\n";
+                        //richTextBox1.Text += fileName;
+                        //richTextBox1.Text += "\n";
+                        schitivanietekstaizdoka(fileName);
+
+
                     }
 
                 }
@@ -229,12 +229,68 @@ namespace WindowsFormsApp1
             Connect.Close();
         }
 
+        int stroka = 0;
         private void peredelka_bd()
         {
             SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
-            SQLiteCommand command = Connect.CreateCommand();
+            SQLiteCommand command;            
             Connect.Open();
-            command.CommandText = @"UPDATE resume SET Фамилия = "+ "'" + textBox1.Text.ToString()+ "'";
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Фамилия = "+ "'" + textBox1.Text.ToString()+ "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Имя = " + "'" + textBox2.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Отчество = " + "'" + textBox3.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Адрес = " + "'" + textBox4.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Телефон = " + "'" + textBox5.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Цель = " + "'" + textBox6.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Образование = " + "'" + textBox7.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Диплом = " + "'" + textBox8.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET 'Дата получения' = " + "'" + textBox9.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET 'Учебное заведение' = " + "'" + textBox10.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Специализация = " + "'" + textBox11.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET 'Дополнительная специализация' = " + "'" + textBox12.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET 'Курсовые работы по специальности' = " + "'" + textBox13.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET 'Навыки и умения' = " + "'" + textBox14.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Управление = " + "'" + textBox15.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET 'Опыт работы' = " + "'" + textBox16.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Должность = " + "'" + textBox17.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET Организация = " + "'" + textBox18.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.ExecuteReader();
+            command = Connect.CreateCommand();
+            command.CommandText = @"UPDATE resume SET 'Даты с – по' = " + "'" + textBox19.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
             command.ExecuteReader();
             Connect.Close();
         }
@@ -265,16 +321,19 @@ namespace WindowsFormsApp1
                 perenos_v_bd();
             }
         }
-
+        
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            
+           stroka = e.RowIndex;
             //MessageBox.Show("sdfsdfsdf");
             ochistka();
             string[] str = new string[100];
             for(int i = 0; i < dataGridView1.CurrentRow.Cells.Count; i++)
             {
                 str[i] = dataGridView1.CurrentRow.Cells[i].Value.ToString();
-                richTextBox1.Text += i;
+               
+                //richTextBox1.Text += i;
             }
             soderzimoe_doca_dlya_pravki(str);
         }
