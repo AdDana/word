@@ -102,7 +102,7 @@ namespace WindowsFormsApp1
             using (WordprocessingDocument myDocument = WordprocessingDocument.Open(fileName, true))
             {
                 Body body = myDocument.MainDocumentPart.Document.Body;
-                for (int g = 0; g < 20; g++)
+                for (int g = 0; g < 19; g++)
                 {
                     DocumentFormat.OpenXml.Wordprocessing.Paragraph firstParagraph = body.Elements<Paragraph>().ElementAt<Paragraph>(g);
                     DocumentFormat.OpenXml.OpenXmlElement firstChild = firstParagraph.FirstChild;
@@ -111,7 +111,7 @@ namespace WindowsFormsApp1
                     {
                         sdf = runs.InnerText.ToString();
                         //qwerty(sdf);
-                        //strmas[g] = sdf;
+                        strmas[g] = sdf;
                     }
                 }
                 myDocument.MainDocumentPart.Document.Save();
@@ -204,15 +204,6 @@ namespace WindowsFormsApp1
                 {
                     // This path is a directory
                     string[] fileEntries = Directory.GetFiles(path);
-                    //dirs1 =  Directory.GetFiles(path);
-                    foreach (string fileName in fileEntries)
-                    {
-                        //richTextBox1.Text += fileName;
-                        //richTextBox1.Text += "\n";
-                        schitivanietekstaizdoka(fileName);
-
-
-                    }
 
                 }
             }
@@ -342,6 +333,7 @@ namespace WindowsFormsApp1
         {
             peredelka_bd();
         }
+
     }
     }
 
