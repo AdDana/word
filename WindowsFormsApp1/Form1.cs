@@ -85,7 +85,6 @@ namespace WindowsFormsApp1
             application.Visible = true;
         }
 
-
         //Считывание всего текста
         private void schitivanietekstaizdoka(string name)
         {
@@ -159,7 +158,6 @@ namespace WindowsFormsApp1
             textBox18.Text += strmas1[18];
             textBox19.Text += strmas1[19];
         }
-
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -308,6 +306,11 @@ namespace WindowsFormsApp1
                 //richTextBox1.Text += i;
             }
             soderzimoe_doca_dlya_pravki(str);
+        }
+
+        private void proverka_na_odinakovost()
+        {
+
         }
 
         private void button2_Click(object sender, EventArgs e)
