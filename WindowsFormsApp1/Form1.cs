@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
         public Form1()
         {      
             InitializeComponent();
+            dataGridView1.ContextMenuStrip = contextMenuStrip1;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -310,7 +311,13 @@ namespace WindowsFormsApp1
 
         private void proverka_na_odinakovost()
         {
-
+            SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
+            SQLiteCommand command = Connect.CreateCommand();
+            Connect.Open();
+            for(int i = 0; i < dataGridView1.RowCount; i++)
+            command.CommandText = @"DELETE FROM resume [WHERE  LIKE " + а + "]";
+            command.ExecuteReader();
+            Connect.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -318,6 +325,15 @@ namespace WindowsFormsApp1
             peredelka_bd();
         }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
