@@ -312,27 +312,26 @@ namespace WindowsFormsApp1
         private void proverka_na_odinakovost()
         {
             SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
-            SQLiteCommand command = Connect.CreateCommand();
+            SQLiteCommand command;
             Connect.Open();
-            for(int i = 0; i < dataGridView1.RowCount; i++)
-            command.CommandText = @"DELETE FROM resume [WHERE  LIKE " + а + "]";
-            command.ExecuteReader();
-            Connect.Close();
-        }
-
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+                for (int j = 0; j < dataGridView1.RowCount; j++)
+                {
+                    command = Connect.CreateCommand();
+                    command.CommandText = @"DELETE FROM resume (WHERE 'Фамилия' WHERE identificator = " + "'" + i + "'" + "LIKE 'Фамилия' WHERE identificator = " + j + ")" + "AND (WHERE 'Имя' WHERE identificator = " + i + "LIKE 'Имя' WHERE identificator = " + j + "')" + "AND (WHERE 'Отчество' WHERE identificator = " + i + "LIKE 'Отчество' WHERE identificator = " + j + ")" + "AND (WHERE 'Телефон' WHERE identificator = " + i + "LIKE 'Телефон' WHERE identificator = " + j + ")";
+                    command.ExecuteReader();
+                    Connect.Close();
+                }
+            }
+        
         private void button2_Click(object sender, EventArgs e)
         {
             peredelka_bd();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
+            proverka_na_odinakovost();
         }
     }
     }
