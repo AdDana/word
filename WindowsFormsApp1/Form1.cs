@@ -313,23 +313,47 @@ namespace WindowsFormsApp1
             SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
             SQLiteCommand command;
             Connect.Open();
-            for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+            int i = dataGridView1.RowCount - 2;
             for (int j = 0; j < dataGridView1.RowCount - 1; j++)
             {
-                //int nomer = 0;
-                command = Connect.CreateCommand();
                 string telefon = dataGridView1.Rows[i].Cells[5].Value.ToString();
                 string telefon2 = dataGridView1.Rows[j].Cells[5].Value.ToString();
                 if (telefon == telefon2 && i != j)
                     {
-                            command.CommandText = @"DELETE FROM resume WHERE identificator = " + dataGridView1.Rows[j].Cells[0].Value.ToString();
-                            command.ExecuteReader();
-                            command.Reset();
+                    command = Connect.CreateCommand();
+                    command.CommandText = @"DELETE FROM resume WHERE identificator = " + dataGridView1.Rows[j].Cells[0].Value.ToString();
+                    command.ExecuteReader();
+                    command.Reset();
                     }
+                command = Connect.CreateCommand();
+                command.CommandText = @"DELETE FROM resume WHERE identificator = " + dataGridView1.Rows[i].Cells[0].Value.ToString();
+                command.ExecuteReader();
+                command.Reset();
             }
             Connect.Close();
         }
-        
+
+        private void proverka_na_odinakovost_knopka()
+        {
+            SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
+            SQLiteCommand command;
+            Connect.Open();
+            for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                for (int j = 0; j < dataGridView1.RowCount - 1; j++)
+                {
+                    command = Connect.CreateCommand();
+                    string telefon = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                    string telefon2 = dataGridView1.Rows[j].Cells[5].Value.ToString();
+                    if (telefon == telefon2 && i != j)
+                    {
+                        command.CommandText = @"DELETE FROM resume WHERE identificator = " + dataGridView1.Rows[j].Cells[0].Value.ToString();
+                        command.ExecuteReader();
+                        command.Reset();
+                    }
+                }
+            Connect.Close();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             peredelka_bd();
