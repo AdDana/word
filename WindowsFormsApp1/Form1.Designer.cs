@@ -579,13 +579,13 @@
             this.richTextBox1.Location = new System.Drawing.Point(1192, 49);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(254, 458);
+            this.richTextBox1.Size = new System.Drawing.Size(162, 458);
             this.richTextBox1.TabIndex = 56;
             this.richTextBox1.Text = "";
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 213);
+            this.button5.Location = new System.Drawing.Point(14, 515);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(111, 47);
             this.button5.TabIndex = 57;
@@ -596,7 +596,7 @@
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(23, 182);
+            this.textBox20.Location = new System.Drawing.Point(12, 568);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(100, 20);
             this.textBox20.TabIndex = 58;
@@ -608,11 +608,21 @@
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(68, 48);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(67, 22);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(67, 22);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(23, 346);
+            this.button7.Location = new System.Drawing.Point(12, 172);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(113, 48);
             this.button7.TabIndex = 59;

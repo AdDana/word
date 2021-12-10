@@ -62,6 +62,7 @@ namespace WindowsFormsApp1
         Object falseObj = false;
 
         public string[] strmas = new string[100];
+        public string identificator="";
 
         private void openfile()
         {
@@ -138,7 +139,7 @@ namespace WindowsFormsApp1
             //string a = textBox20.Text;
 
             //schitivanietekstaizdoka("D:/resume.docx");
-
+            identificator= strmas1[0];
             textBox1.Text += strmas1[1];
             textBox2.Text += strmas1[2];
             textBox3.Text += strmas1[3];
@@ -199,70 +200,69 @@ namespace WindowsFormsApp1
                 command.ExecuteReader();
             Connect.Close();
         }
-
-        int stroka = 0;
         private void peredelka_bd()
         {
             SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
             SQLiteCommand command;            
             Connect.Open();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Фамилия = "+ "'" + textBox1.Text.ToString()+ "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Фамилия = "+ "'" + textBox1.Text.ToString()+ "'" + "WHERE identificator = " + "'" + identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Имя = " + "'" + textBox2.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Имя = " + "'" + textBox2.Text.ToString() + "'" + "WHERE identificator = " + "'" + identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Отчество = " + "'" + textBox3.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Отчество = " + "'" + textBox3.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Адрес = " + "'" + textBox4.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Адрес = " + "'" + textBox4.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Телефон = " + "'" + textBox5.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Телефон = " + "'" + textBox5.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Цель = " + "'" + textBox6.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Цель = " + "'" + textBox6.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Образование = " + "'" + textBox7.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Образование = " + "'" + textBox7.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Диплом = " + "'" + textBox8.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Диплом = " + "'" + textBox8.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET 'Дата получения' = " + "'" + textBox9.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET 'Дата получения' = " + "'" + textBox9.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET 'Учебное заведение' = " + "'" + textBox10.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET 'Учебное заведение' = " + "'" + textBox10.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Специализация = " + "'" + textBox11.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Специализация = " + "'" + textBox11.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET 'Дополнительная специализация' = " + "'" + textBox12.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET 'Дополнительная специализация' = " + "'" + textBox12.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET 'Курсовые работы по специальности' = " + "'" + textBox13.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET 'Курсовые работы по специальности' = " + "'" + textBox13.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET 'Навыки и умения' = " + "'" + textBox14.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET 'Навыки и умения' = " + "'" + textBox14.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Управление = " + "'" + textBox15.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Управление = " + "'" + textBox15.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET 'Опыт работы' = " + "'" + textBox16.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET 'Опыт работы' = " + "'" + textBox16.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Должность = " + "'" + textBox17.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Должность = " + "'" + textBox17.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET Организация = " + "'" + textBox18.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET Организация = " + "'" + textBox18.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
             command = Connect.CreateCommand();
-            command.CommandText = @"UPDATE resume SET 'Даты с – по' = " + "'" + textBox19.Text.ToString() + "'" + "WHERE identificator = " + "'" + (stroka + 1).ToString() + "'";
+            command.CommandText = @"UPDATE resume SET 'Даты с – по' = " + "'" + textBox19.Text.ToString() + "'" + "WHERE identificator = " + "'" +identificator + "'";
             command.ExecuteReader();
+
             Connect.Close();
         }
 
@@ -295,8 +295,6 @@ namespace WindowsFormsApp1
         
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
-           stroka = e.RowIndex;
             //MessageBox.Show("sdfsdfsdf");
             ochistka();
             string[] str = new string[100];
@@ -313,16 +311,23 @@ namespace WindowsFormsApp1
         {
             SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
             SQLiteCommand command;
-            Connect.Open();
-            for (int i = 0; i < dataGridView1.RowCount; i++)
-                for (int j = 0; j < dataGridView1.RowCount; j++)
-                {
-                    command = Connect.CreateCommand();
-                    command.CommandText = @"DELETE FROM resume (WHERE 'Фамилия' WHERE identificator = " + "'" + i + "'" + "LIKE 'Фамилия' WHERE identificator = " + j + ")" + "AND (WHERE 'Имя' WHERE identificator = " + i + "LIKE 'Имя' WHERE identificator = " + j + "')" + "AND (WHERE 'Отчество' WHERE identificator = " + i + "LIKE 'Отчество' WHERE identificator = " + j + ")" + "AND (WHERE 'Телефон' WHERE identificator = " + i + "LIKE 'Телефон' WHERE identificator = " + j + ")";
-                    command.ExecuteReader();
-                    Connect.Close();
+            //Connect.Open();
+            for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+            for (int j = 0; j < dataGridView1.RowCount - 1; j++)
+            {
+                //command = Connect.CreateCommand();
+                string telefon = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                string telefon2 = dataGridView1.Rows[j].Cells[5].Value.ToString();
+                    if (telefon == telefon2 && i != j)
+                        richTextBox1.Text += "YES";
+                        richTextBox1.Text += 
+                    //richTextBox1.Text += telefon + "\n";
+                    //command.CommandText = @"DELETE FROM resume WHERE identificator = ";
+                    //command.ExecuteReader();
+                    //command.Reset();
                 }
-            }
+            Connect.Close();
+        }
         
         private void button2_Click(object sender, EventArgs e)
         {
@@ -335,4 +340,3 @@ namespace WindowsFormsApp1
         }
     }
     }
-
