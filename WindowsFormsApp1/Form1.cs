@@ -269,6 +269,7 @@ namespace WindowsFormsApp1
         private void button6_Click(object sender, EventArgs e)
         {
             perenos_v_bd();
+            proverka_na_odinakovost();
         }
 
 
@@ -311,21 +312,21 @@ namespace WindowsFormsApp1
         {
             SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
             SQLiteCommand command;
-            //Connect.Open();
+            Connect.Open();
             for (int i = 0; i < dataGridView1.RowCount - 1; i++)
             for (int j = 0; j < dataGridView1.RowCount - 1; j++)
             {
-                //command = Connect.CreateCommand();
+                //int nomer = 0;
+                command = Connect.CreateCommand();
                 string telefon = dataGridView1.Rows[i].Cells[5].Value.ToString();
                 string telefon2 = dataGridView1.Rows[j].Cells[5].Value.ToString();
-                    if (telefon == telefon2 && i != j)
-                        richTextBox1.Text += "YES";
-                        richTextBox1.Text += 
-                    //richTextBox1.Text += telefon + "\n";
-                    //command.CommandText = @"DELETE FROM resume WHERE identificator = ";
-                    //command.ExecuteReader();
-                    //command.Reset();
-                }
+                if (telefon == telefon2 && i != j)
+                    {
+                            command.CommandText = @"DELETE FROM resume WHERE identificator = " + dataGridView1.Rows[j].Cells[0].Value.ToString();
+                            command.ExecuteReader();
+                            command.Reset();
+                    }
+            }
             Connect.Close();
         }
         
