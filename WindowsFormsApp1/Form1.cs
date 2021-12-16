@@ -321,7 +321,7 @@ namespace WindowsFormsApp1
                 string telefon2 = textBox5.Text;
                 if (telefon == telefon2)
                     {
-                    MessageBox.Show("sdfsdfsdf");
+                    MessageBox.Show("Такой номер телефона уже есть, измените своё резюме.");
                     break;
                     }
                 else

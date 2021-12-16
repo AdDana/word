@@ -643,6 +643,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button3);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Form1";
             this.Text = "Программа для электронного документооборота";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
