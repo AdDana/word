@@ -596,9 +596,9 @@
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(12, 568);
+            this.textBox20.Location = new System.Drawing.Point(14, 574);
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(100, 20);
+            this.textBox20.Size = new System.Drawing.Size(111, 20);
             this.textBox20.TabIndex = 58;
             this.textBox20.Visible = false;
             // 
@@ -634,6 +634,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1366, 649);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox20);
@@ -643,7 +644,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button3);
             this.Name = "Form1";
-            this.Text = "Название";
+            this.Text = "Программа для электронного документооборота";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

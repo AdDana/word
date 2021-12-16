@@ -292,7 +292,7 @@ namespace WindowsFormsApp1
                 ochistka();
                 schitivanietekstaizdoka(a);                
                 soderzimoe_doca_dlya_pravki(strmas);
-                perenos_v_bd();
+                proverka_na_odinakovost1();
             }
         }
         
@@ -322,12 +322,15 @@ namespace WindowsFormsApp1
                 if (telefon == telefon2)
                     {
                     MessageBox.Show("sdfsdfsdf");
-                    //break;
+                    break;
                     }
                 else
                 {
-                    perenos_v_bd();
-                    //break;
+                    if (j == dataGridView1.RowCount - 2)
+                    {
+                        perenos_v_bd();
+                        break;
+                    }
                 }
 
             }
@@ -341,21 +344,18 @@ namespace WindowsFormsApp1
             Connect.Open();
             
           
-            for(int i=0;i < dataGridView1.RowCount - 1; i++)
+            for(int i=0;i < dataGridView1.RowCount - 2; i++)
             for (int j = 0; j < dataGridView1.RowCount - 1; j++)
             {
                 string telefon = dataGridView1.Rows[i].Cells[5].Value.ToString();
                 string telefon2 = dataGridView1.Rows[j].Cells[5].Value.ToString();
-
                     if (telefon == telefon2 && i!=j)
                     {
-
                         command = Connect.CreateCommand();
                         command.CommandText = @"DELETE FROM resume WHERE identificator = " + dataGridView1.Rows[j].Cells[0].Value.ToString();
                         command.ExecuteReader();
                         command.Reset();
                         button3_Click(null, null);
-
                     }
                 }
             Connect.Close();
