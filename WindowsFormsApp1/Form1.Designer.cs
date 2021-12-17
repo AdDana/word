@@ -71,7 +71,6 @@
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button6 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -80,17 +79,23 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox20 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.button7 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.jhjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ghjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ghjToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ghjghjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox21 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -107,12 +112,14 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 27);
+            this.button3.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button3.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.button3.Location = new System.Drawing.Point(12, 49);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 48);
+            this.button3.Size = new System.Drawing.Size(113, 52);
             this.button3.TabIndex = 5;
             this.button3.Text = "Открыть / Обновить таблицу";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
@@ -456,38 +463,30 @@
             this.label21.TabIndex = 51;
             this.label21.Text = "по специальности";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(28, 447);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 48);
-            this.button4.TabIndex = 52;
-            this.button4.Text = "Считать текст из doc файла";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(173, 447);
+            this.button6.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button6.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.button6.Location = new System.Drawing.Point(12, 223);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(113, 48);
+            this.button6.Size = new System.Drawing.Size(113, 52);
             this.button6.TabIndex = 54;
             this.button6.Text = "Записать данные в таблицу";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(156, 27);
+            this.tabControl1.Location = new System.Drawing.Point(152, 125);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1014, 571);
+            this.tabControl1.Size = new System.Drawing.Size(986, 541);
             this.tabControl1.TabIndex = 55;
             // 
             // tabPage1
@@ -495,19 +494,16 @@
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1006, 545);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(978, 515);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Таблица";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.a1);
-            this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.a2);
             this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Controls.Add(this.textBox2);
@@ -548,59 +544,46 @@
             this.tabPage2.Controls.Add(this.a11);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1006, 545);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(978, 515);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Редактор";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(315, 447);
+            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button2.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.button2.Location = new System.Drawing.Point(12, 281);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 48);
+            this.button2.Size = new System.Drawing.Size(113, 52);
             this.button2.TabIndex = 56;
             this.button2.Text = "Обновить данные в таблице";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 101);
+            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button1.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.button1.Location = new System.Drawing.Point(12, 107);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 48);
+            this.button1.Size = new System.Drawing.Size(113, 52);
             this.button1.TabIndex = 55;
             this.button1.Text = "Записать данные файлов из папки в таблицу";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox1.Location = new System.Drawing.Point(1192, 49);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(162, 458);
             this.richTextBox1.TabIndex = 56;
             this.richTextBox1.Text = "";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(14, 515);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(111, 47);
-            this.button5.TabIndex = 57;
-            this.button5.Text = "Считать файлы из папки";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(14, 574);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(111, 20);
-            this.textBox20.TabIndex = 58;
-            this.textBox20.Visible = false;
+            this.richTextBox1.Visible = false;
             // 
             // contextMenuStrip1
             // 
@@ -622,36 +605,104 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(12, 172);
+            this.button7.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button7.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.button7.Location = new System.Drawing.Point(12, 165);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(113, 48);
+            this.button7.Size = new System.Drawing.Size(113, 52);
             this.button7.TabIndex = 59;
-            this.button7.Text = "проверка на одинаковость";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Text = "Проверка на одинаковость";
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.jhjToolStripMenuItem,
+            this.ghjghjToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1366, 24);
+            this.menuStrip1.TabIndex = 60;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // jhjToolStripMenuItem
+            // 
+            this.jhjToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ghjToolStripMenuItem,
+            this.ghjToolStripMenuItem1});
+            this.jhjToolStripMenuItem.Name = "jhjToolStripMenuItem";
+            this.jhjToolStripMenuItem.Size = new System.Drawing.Size(32, 20);
+            this.jhjToolStripMenuItem.Text = "jhj";
+            // 
+            // ghjToolStripMenuItem
+            // 
+            this.ghjToolStripMenuItem.Name = "ghjToolStripMenuItem";
+            this.ghjToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
+            this.ghjToolStripMenuItem.Text = "ghj";
+            // 
+            // ghjToolStripMenuItem1
+            // 
+            this.ghjToolStripMenuItem1.Name = "ghjToolStripMenuItem1";
+            this.ghjToolStripMenuItem1.Size = new System.Drawing.Size(91, 22);
+            this.ghjToolStripMenuItem1.Text = "ghj";
+            // 
+            // ghjghjToolStripMenuItem
+            // 
+            this.ghjghjToolStripMenuItem.Name = "ghjghjToolStripMenuItem";
+            this.ghjghjToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ghjghjToolStripMenuItem.Text = "ghjghj";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.button4.Location = new System.Drawing.Point(1027, 52);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(111, 46);
+            this.button4.TabIndex = 61;
+            this.button4.Text = "Поиск";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox21
+            // 
+            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox21.Location = new System.Drawing.Point(152, 52);
+            this.textBox21.Multiline = true;
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(877, 46);
+            this.textBox21.TabIndex = 62;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1366, 649);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(1366, 848);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox21);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.textBox20);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button3);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Программа для электронного документооборота";
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -700,14 +751,11 @@
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -715,6 +763,13 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem jhjToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ghjToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ghjToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ghjghjToolStripMenuItem;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox21;
     }
 }
 
