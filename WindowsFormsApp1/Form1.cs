@@ -170,8 +170,8 @@ namespace WindowsFormsApp1
                 if (File.Exists(path))
                 {
                     // This path is a file
-                    richTextBox1.Text += path;
-                    richTextBox1.Text += "\n";
+                    //richTextBox1.Text += path;
+                    //richTextBox1.Text += "\n";
                 }
                 else if (Directory.Exists(path))
                 {
@@ -259,25 +259,6 @@ namespace WindowsFormsApp1
             Connect.Close();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
-            proverka_na_odinakovost1();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            schitivaniefailovvpapke();
-            foreach (string path in dirs1)
-            {
-                string a = path;
-                richTextBox1.Text += a;
-                ochistka();
-                schitivanietekstaizdoka(a);
-                soderzimoe_doca_dlya_pravki(strmas);
-                proverka_na_odinakovost1();
-            }
-        }
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -369,16 +350,6 @@ namespace WindowsFormsApp1
             Connect.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
-            proverka_na_odinakovost_obnovlenie();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            proverka_na_odinakovost();
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -402,6 +373,72 @@ namespace WindowsFormsApp1
                 dataGridView1.Rows.Add(row1);
             }
             Connect.Close();
+        }
+
+        private void записьИзРедактораToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
+            proverka_na_odinakovost1();
+
+        }
+
+        private void ghjToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
+            proverka_na_odinakovost_obnovlenie();
+        }
+
+        private void обновитьТаблицуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
+
+            string[] row1 = new string[50];
+            dataGridView1.Rows.Clear();
+            dataGridView1.ColumnCount = 20;
+
+            SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
+            SQLiteCommand command = Connect.CreateCommand();
+            Connect.Open();
+            command.CommandText = @"SELECT * FROM resume ";
+            SQLiteDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    row1[i] = "";//чистка поля перед записью
+                    row1[i] += reader.GetValue(i).ToString();
+                    //richTextBox1.Text += reader.GetValue(i).ToString();
+                    //richTextBox1.Text += reader.GetValue(0).ToString();
+                    countstring++;
+                }
+                dataGridView1.Rows.Add(row1);
+            }
+            Connect.Close();
+        }
+
+        private void проверкаНаОдинаковостьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            proverka_na_odinakovost();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void записьИзФайловВПапкеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            schitivaniefailovvpapke();
+            foreach (string path in dirs1)
+            {
+                string a = path;
+                //richTextBox1.Text += a;
+                ochistka();
+                schitivanietekstaizdoka(a);
+                soderzimoe_doca_dlya_pravki(strmas);
+                proverka_na_odinakovost1();
+            }
         }
     }
 }
