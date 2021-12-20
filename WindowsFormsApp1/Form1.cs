@@ -25,6 +25,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
+            tabPage2.ContextMenuStrip = contextMenuStrip2;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -283,7 +284,7 @@ namespace WindowsFormsApp1
                 string telefon2 = textBox5.Text;
                 if (telefon == telefon2)
                 {
-                    MessageBox.Show("Такой номер телефона уже есть, измените своё резюме.");
+                    MessageBox.Show("Такой номер телефона уже есть, измените своё резюме.","Ошибка");
                     break;
                 }
                 else
@@ -381,14 +382,9 @@ namespace WindowsFormsApp1
             proverka_na_odinakovost1();
 
         }
+       
 
-        private void ghjToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
-            proverka_na_odinakovost_obnovlenie();
-        }
-
-        private void обновитьТаблицуToolStripMenuItem_Click(object sender, EventArgs e)
+        private void obnovlenie_tablici()
         {
             tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
 
@@ -417,17 +413,51 @@ namespace WindowsFormsApp1
             Connect.Close();
         }
 
+        private void обновитьТаблицуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            obnovlenie_tablici();
+        }
+
         private void проверкаНаОдинаковостьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             proverka_na_odinakovost();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+
+        private void обновитьТаблицуToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            obnovlenie_tablici();
+        }
+
+        private void проверитьНаОдинаковостьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            proverka_na_odinakovost();
+        }
+
+        private void обновитьСуществующиеДанныеВТаблицеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
+            proverka_na_odinakovost_obnovlenie();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
 
         }
 
-        private void записьИзФайловВПапкеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ываToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
+            proverka_na_odinakovost1();
+        }
+
+        private void обновлениеСуществующихДанныхВТаблицеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
+            proverka_na_odinakovost_obnovlenie();
+        }
+
+        private void ghjToolStripMenuItem_Click(object sender, EventArgs e)
         {
             schitivaniefailovvpapke();
             foreach (string path in dirs1)
@@ -439,6 +469,11 @@ namespace WindowsFormsApp1
                 soderzimoe_doca_dlya_pravki(strmas);
                 proverka_na_odinakovost1();
             }
+        }
+
+        private void обновитьТаблицуToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            obnovlenie_tablici();
         }
     }
 }
