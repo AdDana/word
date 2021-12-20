@@ -475,5 +475,18 @@ namespace WindowsFormsApp1
         {
             obnovlenie_tablici();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SQLiteConnection Connect = new SQLiteConnection(@"Data Source=D:/resume.db; Version=3;");
+            SQLiteCommand command;
+            Connect.Open();
+            command = Connect.CreateCommand();
+            command.CommandText = @"DELETE FROM resume WHERE identificator = " + identificator;
+            command.ExecuteReader();
+            Connect.Close();
+            tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
+            button3_Click(null, null);
+        }
     }
 }

@@ -87,6 +87,7 @@
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ываToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обновлениеСуществующихДанныхВТаблицеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -471,13 +472,14 @@
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1072, 552);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Таблица";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.a1);
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.a2);
@@ -520,7 +522,7 @@
             this.tabPage2.Controls.Add(this.a11);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1072, 552);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Редактор";
@@ -638,6 +640,19 @@
             this.обновлениеСуществующихДанныхВТаблицеToolStripMenuItem.Text = "Обновление существующих данных в таблице";
             this.обновлениеСуществующихДанныхВТаблицеToolStripMenuItem.Click += new System.EventHandler(this.обновлениеСуществующихДанныхВТаблицеToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(623, 434);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(432, 60);
+            this.button1.TabIndex = 62;
+            this.button1.Text = "Удалить данную строку";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,6 +742,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem ываToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обновлениеСуществующихДанныхВТаблицеToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 
