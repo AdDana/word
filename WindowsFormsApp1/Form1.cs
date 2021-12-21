@@ -164,19 +164,14 @@ namespace WindowsFormsApp1
         public string[] dirs1;
         private void schitivaniefailovvpapke()
         {
-            //string[] dirs = Directory.GetFiles(@"D:\test");
             dirs1 = Directory.GetFiles(@"D:\test");
             foreach (string path in dirs1)
             {
                 if (File.Exists(path))
                 {
-                    // This path is a file
-                    //richTextBox1.Text += path;
-                    //richTextBox1.Text += "\n";
                 }
                 else if (Directory.Exists(path))
                 {
-                    // This path is a directory
                     string[] fileEntries = Directory.GetFiles(path);
 
                 }
@@ -382,7 +377,6 @@ namespace WindowsFormsApp1
             proverka_na_odinakovost1();
 
         }
-       
 
         private void obnovlenie_tablici()
         {
@@ -422,7 +416,6 @@ namespace WindowsFormsApp1
         {
             proverka_na_odinakovost();
         }
-
 
         private void обновитьТаблицуToolStripMenuItem1_Click(object sender, EventArgs e)
         {
